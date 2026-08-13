@@ -2,31 +2,31 @@ name: Auto Commit Streak
 
 on:
   schedule:
-    # Runs at 02:00 AM UTC and 04:00 AM UTC daily
+    # Runs twice a day (UTC time)
     - cron: '0 2 * * *'
     - cron: '0 4 * * *'
-  workflow_dispatch:
+  workflow_dispatch: # Allows manual trigger
 
 jobs:
   commit:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Set up Git Identity
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.io'
+          git config --global user.name 'Synapse-CodeX'
+          git config --global user.email 'debshuvra2005@gmail.com'
 
       - name: Make Two Commits
         run: |
+          # First commit
           echo "Automated commit 1 - $(date)" >> streak.txt
           git add streak.txt
           git commit -m "chore: automated streak update 1"
 
+          # Second commit
           echo "Automated commit 2 - $(date)" >> streak.txt
           git add streak.txt
           git commit -m "chore: automated streak update 2"
