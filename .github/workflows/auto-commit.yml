@@ -31,4 +31,5 @@ jobs:
           git add streak.txt
           git commit -m "chore: automated streak update 2"
 
+          git pull --rebase origin main
           git push
