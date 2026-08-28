@@ -7,6 +7,10 @@ on:
     - cron: '0 4 * * *'
   workflow_dispatch: # Allows manual trigger
 
+concurrency:
+  group: auto-commit-streak-main
+  cancel-in-progress: false
+
 jobs:
   commit:
     runs-on: ubuntu-latest
